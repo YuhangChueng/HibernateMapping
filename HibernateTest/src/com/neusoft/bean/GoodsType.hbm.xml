@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.neusoft.bean">
+	<class name = "GoodsType" table="GoodsType" catalog="mydb">
+		<id name="typenum" column="typenum">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="typename" column="typename"></property>
+		<set name="goods"  inverse="true">
+			<key column="goods_num"></key>
+			<one-to-many class="Goods"></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

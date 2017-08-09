@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.neusoft.bean">
+	<class name = "Goods" table="Goods" catalog="mydb">
+		<id name="goodsnum" column="goodsnum">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="goodsname" column="goodsname"></property>
+		<set name="orderform" table="goods_orderform">
+			<key column="goods_num"></key>
+			<many-to-many class="OrderForm" column="form_num"></many-to-many>
+		</set>
+		<set name="shoppingcar" table="goods_shoppingcar">
+			<key column="goods_num"></key>
+			<many-to-many class="ShoppingCar" column="car_num"></many-to-many>
+		</set>
+		<many-to-one name="goodstype" column="type_num"></many-to-one>
+	</class>
+</hibernate-mapping>
